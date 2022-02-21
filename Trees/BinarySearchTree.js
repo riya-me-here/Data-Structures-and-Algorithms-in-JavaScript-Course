@@ -16,7 +16,7 @@ class BinarySearchTree{
             this.root = new Node(data) //check if root is null,then put data to new node
         }
         else{
-            const searchTree = function(node){
+            const searchTree = function(node){ //recursive function
                 if(data <node.data){ //if the new data is less than the data of current node put it in left subtree
                     if(node.left ===  null){ //if there is no node on left subtree,add a new node with the given new data
                         node.left = new Node(data) 
@@ -39,13 +39,13 @@ class BinarySearchTree{
         }
     }
     findMin() {
-        let current = this.root;  //returns the current left subtree node
+        let current = this.root;  //returns the current leftmost subtree node
         while (current.left !== null) {
           current = current.left;
         }
         return current.data;
       }
-      findMax() {  //returns the current right subtree node
+      findMax() {  //returns the current rightmost subtree node
         let current = this.root;
         while (current.right !== null) {
           current = current.right;
@@ -66,7 +66,7 @@ class BinarySearchTree{
         }
         return current;
       }
-      isPresent(data) {
+      isPresent(data) { //similar as find function
         let current = this.root;
         while (current) {
           if (data === current.data) {
@@ -80,7 +80,7 @@ class BinarySearchTree{
         }
         return false;
       }
-      remove(data) {
+      remove(data) { //recursive function
         const removeNode = function(node, data) {
           if (node == null) {
             return null;
@@ -92,14 +92,14 @@ class BinarySearchTree{
             }
             // node has no left child 
             if (node.left == null) {
-              return node.right;
+              return node.right; //replace the node with right one and delete the current one
             }
             // node has no right child 
             if (node.right == null) {
-              return node.left;
+              return node.left; //replace the node with left one and delete the current one
             }
-            // node has two children 
-            var tempNode = node.right;
+            // node has two children
+            var tempNode = node.right; //in this case replace with the down leftmost element via right node
             while (tempNode.left !== null) {
               tempNode = tempNode.left;
             }
@@ -121,7 +121,7 @@ class BinarySearchTree{
       }
       findMinHeight(node = this.root) {
           if (node == null) {
-              return -1;
+              return -1;   //eventually anyone is going to be null bz either left or right node will be null
           };
           let left = this.findMinHeight(node.left);
           let right = this.findMinHeight(node.right);
@@ -143,7 +143,7 @@ class BinarySearchTree{
               return right + 1;
           };
       }
-      inOrder() {
+      inOrder() { //left root right
         if (this.root == null) {
           return null;
         } else {
@@ -157,7 +157,7 @@ class BinarySearchTree{
           return result;
         };
       }
-      preOrder() {
+      preOrder() { //root left right
         if (this.root == null) {
           return null;
         } else {
@@ -171,7 +171,7 @@ class BinarySearchTree{
           return result;
         };
       }
-      postOrder() {
+      postOrder() { //left right root
         if (this.root == null) {
           return null;
         } else {
@@ -187,9 +187,9 @@ class BinarySearchTree{
       }
       
       levelOrder() {
-          let result = [];
+          let result = []; //we start by adding the root node to the queue
           let Q = []; 
-          if (this.root != null) {
+          if (this.root != null) { //root left right left right...
               Q.push(this.root);
               while(Q.length > 0) {
                   let node = Q.shift();
