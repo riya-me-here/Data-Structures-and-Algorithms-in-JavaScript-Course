@@ -38,12 +38,12 @@ function LinkedList() {
       if(currentNode.element === element){ //when head node is the element we want to remove
           head = currentNode.next; 
       } else {
-          while(currentNode.element !== element) {
-              previousNode = currentNode; //put current node in a temporary variable
-              currentNode = currentNode.next; //current node points to next node
+          while(currentNode.element !== element) { //keep going through this while loop and keep jumping to next element
+              previousNode = currentNode; 
+              currentNode = currentNode.next;
           }
   
-          previousNode.next = currentNode.next; //link the nextnode and temporary variable, means current node will get removed as the link is removed
+          previousNode.next = currentNode.next; // previos node's link is is now made as the next nodes's link so the middle elements gets removed
       }
   
       length --;
