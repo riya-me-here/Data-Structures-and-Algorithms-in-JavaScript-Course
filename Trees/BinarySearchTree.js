@@ -220,32 +220,26 @@ class BinarySearchTree {
 }
 
 const bstObj = new BinarySearchTree();
-bstObj.add(1);
-bstObj.add(2);
-bstObj.add(3);
-bstObj.add(4);
-bstObj.add(5);
-bstObj.add(6);
-bstObj.add(7);
-bstObj.add(8);
-bstObj.add(9);
-bstObj.add(10);
 
-console.log(bstObj.findMin());
-bstObj.remove(1);
-console.log(bstObj.findMin());
-console.log(bstObj.findMax());
-console.log(bstObj.isPresent(2));
-console.log(bstObj.find(5));
+bstObj.add(9);
+bstObj.add(4);
+bstObj.add(17);
+bstObj.add(3);
+bstObj.add(6);
+bstObj.add(22);
+bstObj.add(5);
+bstObj.add(7);
+bstObj.add(20);
 
 console.log(bstObj.findMinHeight());
 console.log(bstObj.findMaxHeight());
 console.log(bstObj.isBalanced());
-bstObj.add(11);
+bstObj.add(10);
 console.log(bstObj.findMinHeight());
 console.log(bstObj.findMaxHeight());
 console.log(bstObj.isBalanced());
 console.log("inOrder: " + bstObj.inOrder());
 console.log("preOrder: " + bstObj.preOrder());
 console.log("postOrder: " + bstObj.postOrder());
+
 console.log("levelOrder: " + bstObj.levelOrder());
